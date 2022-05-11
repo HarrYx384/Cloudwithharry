@@ -21,7 +21,7 @@ pipeline{
                    sh ' git commit -m "added new files"'
                    sh 'git push origin ${JOB_NAME}_${BUILD_ID}'
             }
-           
+            }           
 
         }
         
