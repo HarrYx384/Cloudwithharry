@@ -6,6 +6,7 @@ pipeline{
                 sh 'mkdir gmail_repo'
                 sh 'cd gmail_repo'
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github_synq', url: 'https://github.com/HarrYx384/yesbank.git']]])
+                sh 'rm -rvf .git'
             }
         }
         
