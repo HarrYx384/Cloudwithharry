@@ -12,7 +12,14 @@ pipeline{
         
         stage("push this code to sneo repo"){
             steps{
-                sh 'pwd'
+               sh "pwd"
+                dir('/tmp/sneo') {
+                   sh 'git init'
+                   sh 'git remote add origin  https://github.com/vikash-sneo/Testing.git'
+                   sh 'git checkout -b ${JOB_NAME}_${BUILD_ID}'
+                   sh 'git add .'
+                   sh ' git commit -m "added new files"'
+                   sh 'git push origin ${JOB_NAME}_${BUILD_ID}'
             }
            
 
